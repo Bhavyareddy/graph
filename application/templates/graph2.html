@@ -1,0 +1,51 @@
+<html>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.bundle.js"></script>
+<body>
+    <form name="form" method = "POST"> {% csrf_token %}
+        <button type="submit" onclick="javascript: form.action='/graph/';">1</button>
+        <button type="submit" onclick="javascript: form.action='/graph2/';">2</button>
+        <button type="submit" onclick="javascript: form.action='/graph3/';">3</button>
+        <button type="submit" onclick="javascript: form.action='/graph4/';">4</button>
+    </form>
+</body>
+
+
+	<canvas id="myChart" width="80" height="20"></canvas>
+	
+	<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+    	xLabels: [0,"monday", "tuesday", "wednesday", "thursday", "friday", "saturday","sunday"],
+    	yLabels: [0,10,100,1000,10000,100000,100000,10000000],
+    datasets: [
+        {
+            label: "view page",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 2,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [40,42.33,43.55,43.99,44.77,45.33,45.88,46.22,47.555,48,52.55,56.666],
+            spanGaps: false,
+        }
+    ]
+
+    }
+});
+</script>
+</html>
